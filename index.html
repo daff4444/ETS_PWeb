@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LibraryReg</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>📚 LibraryReg</h2>
+    <nav>
+      <a href="#" onclick="halaman('beranda')">Beranda</a>
+      <a href="#" onclick="halaman('tentang')">Tentang</a>
+      <a href="#" onclick="halaman('layanan')">Layanan</a>
+      <a href="#" onclick="halaman('daftar')">Pendaftaran</a>
+      <a href="#" onclick="halaman('anggota')">Anggota</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="beranda" class="halaman aktif">
+      <h1>Selamat Datang di LibraryReg</h1>
+      <p>Tempat membaca, belajar, dan menemukan pengetahuan baru.</p>
+      <button onclick="halaman('daftar')">Daftar Anggota</button>
+    </section>
+
+    <section id="tentang" class="halaman">
+      <h1>Tentang Perpustakaan</h1>
+      <p>
+        LibraryReg adalah sistem informasi keanggotaan
+        Perpustakaan Cakrawala untuk mempermudah proses
+        pendaftaran dan pengelolaan data anggota.
+      </p>
+    </section>
+
+    <section id="layanan" class="halaman">
+      <h1>Layanan Perpustakaan</h1>
+
+      <div class="kartu">
+        <h3>📖 Peminjaman Buku</h3>
+        <p>Layanan peminjaman dan pengembalian buku.</p>
+      </div>
+
+      <div class="kartu">
+        <h3>💻 Referensi Digital</h3>
+        <p>Akses sumber belajar dan referensi akademik.</p>
+      </div>
+
+      <div class="kartu">
+        <h3>👥 Ruang Baca</h3>
+        <p>Tempat membaca dan belajar bersama.</p>
+      </div>
+    </section>
+
+    <section id="daftar" class="halaman">
+      <h1>Formulir Pendaftaran</h1>
+
+      <form id="formAnggota">
+        <input type="hidden" id="id">
+
+        <label for="nama">Nama Lengkap</label>
+        <input id="nama" required>
+
+        <label for="nim">NIM/NIP</label>
+        <input id="nim" required>
+
+        <label for="prodi">Program Studi / Unit</label>
+        <input id="prodi" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+
+        <!-- Kolom baru: nomor telepon -->
+        <label for="telepon">Nomor Telepon</label>
+        <input
+          id="telepon"
+          type="tel"
+          placeholder="Contoh: 081234567890"
+          pattern="[0-9+() .-]{8,20}"
+          required
+        >
+
+        <!-- Kolom baru: alamat -->
+        <label for="alamat">Alamat</label>
+        <textarea
+          id="alamat"
+          rows="3"
+          placeholder="Masukkan alamat tempat tinggal"
+          required
+        ></textarea>
+
+        <label for="jenis">Jenis Anggota</label>
+        <select id="jenis" required>
+          <option value="">Pilih jenis anggota</option>
+          <option>Mahasiswa</option>
+          <option>Dosen</option>
+          <option>Tenaga Kependidikan</option>
+        </select>
+
+        <button type="submit" id="tombolSimpan">Simpan Data</button>
+        <button type="reset" class="sekunder">Reset</button>
+      </form>
+
+      <p id="pesan"></p>
+    </section>
+
+    <section id="anggota" class="halaman">
+      <h1>Daftar Anggota</h1>
+
+      <input
+        id="cari"
+        placeholder="Cari nama, NIM/NIP, telepon, atau alamat..."
+      >
+
+      <div class="tabel">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>NIM/NIP</th>
+              <th>Program Studi</th>
+              <th>Email</th>
+              <th>Nomor Telepon</th>
+              <th>Alamat</th>
+              <th>Jenis</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="dataAnggota"></tbody>
+        </table>
+      </div>
+
+      <p id="kosong"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 LibraryReg - Perpustakaan Cakrawala</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
